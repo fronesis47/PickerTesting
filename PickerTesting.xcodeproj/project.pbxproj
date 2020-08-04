@@ -13,6 +13,9 @@
 		229B960E24D85BBF005B3610 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229B960D24D85BBF005B3610 /* Preview Assets.xcassets */; };
 		229B961924D85BBF005B3610 /* PickerTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B961824D85BBF005B3610 /* PickerTestingTests.swift */; };
 		229B962424D85BBF005B3610 /* PickerTestingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B962324D85BBF005B3610 /* PickerTestingUITests.swift */; };
+		229B963624D8B326005B3610 /* ViewModelParamaters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B963524D8B326005B3610 /* ViewModelParamaters.swift */; };
+		229B963B24D8B392005B3610 /* FrameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B963A24D8B392005B3610 /* FrameData.swift */; };
+		229B963D24D8BF61005B3610 /* ParameterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229B963C24D8BF61005B3610 /* ParameterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		229B961F24D85BBF005B3610 /* PickerTestingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerTestingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229B962324D85BBF005B3610 /* PickerTestingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTestingUITests.swift; sourceTree = "<group>"; };
 		229B962524D85BBF005B3610 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229B963524D8B326005B3610 /* ViewModelParamaters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelParamaters.swift; sourceTree = "<group>"; };
+		229B963A24D8B392005B3610 /* FrameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameData.swift; sourceTree = "<group>"; };
+		229B963C24D8BF61005B3610 /* ParameterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +101,9 @@
 		229B960524D85BBB005B3610 /* PickerTesting */ = {
 			isa = PBXGroup;
 			children = (
-				229B960624D85BBB005B3610 /* PickerTestingApp.swift */,
-				229B960824D85BBB005B3610 /* ContentView.swift */,
+				229B963924D8B366005B3610 /* ViewModel */,
+				229B963824D8B361005B3610 /* View */,
+				229B963724D8B35A005B3610 /* Model */,
 				229B960A24D85BBF005B3610 /* Assets.xcassets */,
 				229B960F24D85BBF005B3610 /* Info.plist */,
 				229B960C24D85BBF005B3610 /* Preview Content */,
@@ -128,6 +135,32 @@
 				229B962524D85BBF005B3610 /* Info.plist */,
 			);
 			path = PickerTestingUITests;
+			sourceTree = "<group>";
+		};
+		229B963724D8B35A005B3610 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				229B963A24D8B392005B3610 /* FrameData.swift */,
+				229B963C24D8BF61005B3610 /* ParameterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		229B963824D8B361005B3610 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				229B960624D85BBB005B3610 /* PickerTestingApp.swift */,
+				229B960824D85BBB005B3610 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		229B963924D8B366005B3610 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				229B963524D8B326005B3610 /* ViewModelParamaters.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229B963624D8B326005B3610 /* ViewModelParamaters.swift in Sources */,
 				229B960924D85BBB005B3610 /* ContentView.swift in Sources */,
+				229B963D24D8BF61005B3610 /* ParameterModel.swift in Sources */,
 				229B960724D85BBB005B3610 /* PickerTestingApp.swift in Sources */,
+				229B963B24D8B392005B3610 /* FrameData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
