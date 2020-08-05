@@ -4,6 +4,10 @@ import SwiftUI
 struct ContentView: View {
 
     let brands = getBrandsAll()
+
+
+    @State private var brand = Brand()
+    @State private var model = Model()
     
     @State private var chosenBrand = 0
     @State private var chosenModel = 0
@@ -11,28 +15,33 @@ struct ContentView: View {
     
     
     var body: some View {
-
+        
+        
+        
  // I think these pickers are CORRECT; they just need cleaned data
         VStack {
+            
             Picker(selection: $chosenBrand, label: Text("Brand")) {
-                ForEach(0..<brands.count) {
-                    Text(self.brands[$0].name)
+                ForEach(0..<self.brands.count) { index in
+                    Text(self.brands[index].name).tag(index)
                     }
-            }
+                }
+            .onChange(of: chosenBrand) { _ in brand = self.brands[chosenBrand]; chosenModel = 0 }
             
             Picker(selection: $chosenModel, label: Text("Model")) {
-                ForEach(0..<brands[chosenBrand].models.count) {
-                    Text(self.brands[chosenBrand].models[$0].name)
+                ForEach(0..<brand.models.count) { index in
+                    Text(brand.models[index].name).tag(index)
                     }
             }
+            .onChange(of: chosenModel) { _ in model = self.brands[chosenBrand].models[chosenModel] }
+            .id(brand)
             
             Picker(selection: $chosenYear, label: Text("Year")) {
-                ForEach(0..<brands[chosenBrand].models[chosenModel].years.count) {
-                    Text(self.brands[chosenBrand].models[chosenModel].years[$0])
+                ForEach(0..<model.years.count) { index in
+                    Text(model.years[index]).tag(index)
                     }
             }
-            
-            
+            .id(brand)
         }
     }
 }
