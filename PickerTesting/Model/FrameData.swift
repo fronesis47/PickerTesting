@@ -53,6 +53,7 @@ extension Bundle {
         guard let loaded = try? decoder.decode([Frames].self, from: data) else {
             fatalError("Failed to *decode* remote file.")
         }
+        print("accessing json now")
         return loaded
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @State private var brands = getBrandsAll()
 
     @State private var brand = Brand()
@@ -27,7 +27,7 @@ struct ContentView: View {
                     Text(brand.models[index].name).tag(index)
                     }
                 }
-            .onChange(of: chosenModel) { _ in model = self.brands[chosenBrand].models[chosenModel] ; chosenYear = 0 }
+                .onChange(of: chosenModel) { _ in model = self.brands[chosenBrand].models[chosenModel] ; chosenYear = 0 }
                 .id(brand)
                 .labelsHidden()
             
@@ -36,8 +36,8 @@ struct ContentView: View {
                     Text(model.yearAt(index: index).description).tag(index)
                     }
                 }
-            .labelsHidden()
-            .id(model)
+                .labelsHidden()
+                .id(model)
         }
     }
 }

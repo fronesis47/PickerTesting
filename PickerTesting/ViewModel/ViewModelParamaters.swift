@@ -54,7 +54,7 @@ struct Model: Hashable, Comparable {
 //    }
     
 
-// void init could be []; generic parameters init required self
+// void init could be []; generic parameters init required self (i.e. "years")
     init () {
         self.name = "Paul"
         self.years = Set<Int>()
@@ -66,7 +66,6 @@ struct Model: Hashable, Comparable {
     }
 }
 
-
 func getBrandsAll() -> [Brand] {
     var brands: [String : Brand] = [:]
     var modelHelper: [String : [String : Int]] = [:]
@@ -74,48 +73,29 @@ func getBrandsAll() -> [Brand] {
     
     for i in 0..<allFrames.count {
         if brands[allFrames[i].brand] == nil {
-            brands[allFrames[i].brand] = Brand(name: allFrames[i].brand, models: [Model(name: allFrames[i].model, years: [allFrames[i].year])])
+            brands[allFrames[i].brand] = Brand(name: allFrames[i].brand,
+                models: [Model(name: allFrames[i].model, years: [allFrames[i].year])])
 
-                modelHelper[allFrames[i].brand] = [allFrames[i].model : 0]
+            modelHelper[allFrames[i].brand] = [allFrames[i].model : 0]
+        }
+        else if modelHelper[allFrames[i].brand]?[allFrames[i].model] == nil {
+            brands[allFrames[i].brand]?.models.append(Model(name: allFrames[i].model,
+                years: [allFrames[i].year]))
 
-        } else if modelHelper[allFrames[i].brand]?[allFrames[i].model] == nil {
-
-              brands[allFrames[i].brand]?.models.append(Model(name: allFrames[i].model, years: [allFrames[i].year]))
-
-//Must be set non-nil; avoids repeating models. Old code complex; for years block too; not needed
              modelHelper[allFrames[i].brand]?[allFrames[i].model] = (brands[allFrames[i].brand]?.models.count)! - 1
 
-
-
-        } else {
-
-        let modelIdx = modelHelper[allFrames[i].brand]?[allFrames[i].model] ?? 0
-        print(modelIdx)
-        brands[allFrames[i].brand]?.models[modelIdx].years.insert(allFrames[i].year)
-
-
         }
+        else {
+            let modelIdx = modelHelper[allFrames[i].brand]?[allFrames[i].model] ?? 0
+            brands[allFrames[i].brand]?.models[modelIdx].years.insert(allFrames[i].year)
         }
-    
-//    dump(brands)
+    }
         var brandslist: [Brand] = []
-        
+
         for (_,value) in brands {
-                brandslist.append(value)
-            
-        }
-        let sorted = brandslist.sorted()
-        dump(sorted)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        return sorted
+            brandslist.append(value)
+            }
+dump(brandslist.sorted())
+        return brandslist.sorted()
 }
 
