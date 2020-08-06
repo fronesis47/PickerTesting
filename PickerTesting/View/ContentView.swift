@@ -32,8 +32,8 @@ struct ContentView: View {
                 .labelsHidden()
             
             Picker(selection: $chosenYear, label: Text("Year")) {
-                ForEach(0..<model.years.count) { index in
-                    Text(model.years[index].description).tag(index)
+                ForEach (0..<model.years.count) { index in
+                    Text(model.yearAt(index: index).description).tag(index)
                     }
                 }
             .labelsHidden()
@@ -48,3 +48,10 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
+///should be this for parameters
+//self.input.brand = self.brands[self.chosenBrand]
+//self.input.year = self.brand.models[self.chosenYear]
+//self.input.model = self.model.years[self.chosenModel]
